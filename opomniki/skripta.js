@@ -8,8 +8,25 @@ window.addEventListener('load', function() {
 		console.log("Pritisnil sem na gumb.")
 	}
 	
-	
 	document.querySelector("#prijavniGumb").addEventListener('click', izvediPrijavo);
+	
+	// Dodaj opomnike
+	var dodajOpomnik = function(event) {
+		var naziv_opomnika = document.querySelector("#naziv_opomnika").value;
+		var cas_opomnika = document.querySelector("#cas_opomnika").value;
+		// resetiraj
+		document.querySelector("#naziv_opomnika").value = "";
+		document.querySelector("#cas_opomnika").value = "";
+		
+		document.querySelector("#opomniki").innerHTML += "\
+		<div class = 'opomnik'> \
+			<div class = 'naziv_opomnika'>" + naziv_opomnika + "</div> \
+			<div class = 'cas_opomnika'> Opomnik cez <span>" + cas_opomnika + "</span> sekund.</div> \
+		</div>"
+		console.log("Opomnik dodan.");
+	}
+	
+	document.querySelector("#dodajGumb").addEventListener('click', dodajOpomnik);
 	
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
